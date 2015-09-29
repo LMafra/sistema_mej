@@ -1,0 +1,19 @@
+<section data-ng-controller="DegreesController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Degrees</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="degree in degrees" data-ng-href="#!/degrees/{{degree._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="degree.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="degree.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="degree.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!degrees.$resolved || degrees.length">
+    	No Degrees yet, why don't you <a href="/#!/degrees/create">create one</a>?
+    </div>
+</section>
