@@ -1,0 +1,19 @@
+<section data-ng-controller="AreasController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Areas</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="area in areas" data-ng-href="#!/areas/{{area._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="area.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="area.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="area.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!areas.$resolved || areas.length">
+    	No Areas yet, why don't you <a href="/#!/areas/create">create one</a>?
+    </div>
+</section>
